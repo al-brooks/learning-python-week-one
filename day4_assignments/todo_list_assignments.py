@@ -47,4 +47,5 @@ while True:
         break
     else:
         print("Please enter in one of these values: 1, 2, 3, or q.\n")
+
 print("\nYou are now exiting the app.\nThank you for using this tool!")
