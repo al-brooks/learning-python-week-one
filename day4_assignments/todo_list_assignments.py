@@ -2,6 +2,9 @@
 def intro_message():
     print("\nHello! This app is for creating a to-do list.\nPlease pay attention to the options below:\n\nPress 1 to Add Task\nPress 2 to Delete Task\nPress 3 to View Tasks\nPress q to quit\n")
 
+def exit_message():
+    print("\nYou are now exiting the app.\nThank you for using this tool!")
+
 def add_tasks(title,priority):
     to_do_dic["Title"] = title
     to_do_dic["Priority"] = priority
@@ -16,14 +19,11 @@ def view_tasks(to_do_list):
 
 def delete_tasks(to_do_list):
     print("\nTo delete a task, review task list below:\n")
-    for index in range(0, len(to_do_list)):
-        print(f"{index + 1} - {to_do_list[index]['Title']} - {to_do_list[index]['Priority']}")
+    view_tasks(to_do_list)
     remove_index = (int(input("\nPlease enter the task number that you would like deleted: ")))
     del to_do_list[remove_index - 1]
     print(f"\nBelow is the updated to do list:\n")
-    for index in range(0, len(to_do_list)):
-        print(f"{index + 1} - {to_do_list[index]['Title']} - {to_do_list[index]['Priority']}")
-    print("\n")
+    view_tasks(to_do_list)
 
 to_do_list = []
 intro_message()
@@ -48,4 +48,4 @@ while True:
     else:
         print("Please enter in one of these values: 1, 2, 3, or q.\n")
 
-print("\nYou are now exiting the app.\nThank you for using this tool!")
+exit_message()
